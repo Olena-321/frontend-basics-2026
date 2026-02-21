@@ -37,7 +37,7 @@ input {
   display: block;
   width: 300px;
   height: 40px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   border: 1px solid #eaeaea;
 
   padding: 8px 16px;
@@ -45,7 +45,7 @@ input {
   box-sizing: border-box;
 }
 input::placeholder {
-    color: #A5A5A5;
+  color: #a5a5a5;
 }
 
 .submit-button {
@@ -59,6 +59,26 @@ input::placeholder {
   text-align: center;
   width: 300px;
   height: 45px;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 36px 0 27px 0;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #eaeaea;
+  margin: 0 10px;
+}
+.divider span {
+  margin: 0 10px;
+  font-size: 13px;
+  color: #3d3d3d;
+  text-align: center;
 }
 
 .social-container {
@@ -89,7 +109,7 @@ input::placeholder {
   align-items: center;
   justify-content: center;
   gap: 5px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .google-icon {
