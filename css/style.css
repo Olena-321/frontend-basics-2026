@@ -1,0 +1,268 @@
+/* ============================= */
+/* INDEX PAGE */
+/* ============================= */
+:root {
+  --primary-color: #46a358;
+}
+.container {
+  font-size: 0; /* убираем пробелы между inline-block */
+  white-space: nowrap; /* чтобы не переносились */
+}
+
+.logo-container,
+.nav,
+.login-btn {
+  display: inline-block;
+  vertical-align: middle; /* по центру линии */
+  font-size: 16px; /* вернуть размер текста */
+}
+.logo-icon {
+  vertical-align: middle;
+}
+.logo-text {
+  color: #46a358;
+}
+
+/* Расстояние между логотипом и меню */
+.nav {
+  margin-left: 379px; /* сколько от логотипа до Home */
+}
+
+/* Пункты меню в ряд */
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+.menu-item {
+  display: inline-block;
+  margin-right: 30px; /* расстояние между пунктами меню */
+}
+.menu-link {
+  color: #3d3d3d;
+  text-decoration: none;
+}
+
+/* Кнопка Login в конце */
+
+.login-btn {
+  width: 100px;
+  height: 35px;
+  margin-left: 350px;
+
+  background-color: #46a358; /* primary */
+  color: #ffffff;
+  text-decoration: none;
+
+  display: inline-block;
+  text-align: center;
+  line-height: 35px; /* центр текста по вертикали */
+
+  position: relative;
+  border-radius: 6px;
+}
+/* ============================= */
+/* first-container */
+/* ============================= */
+
+.first {
+  margin-top: 30px;
+}
+
+.first-container {
+  width: 1200px;
+  height: 450px;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+
+  font-size: 0; /* убираем пробел между inline-block */
+  line-height: 1; /* для вертикального выравнивания */
+}
+
+/* Общие стили для колонок */
+.first-content,
+.first-image {
+  display: inline-block;
+  vertical-align: middle; /* выравнивание по центру блока */
+  font-size: 16px; /* возвращаем нормальный размер текста */
+}
+
+/* Левая колонка - текст */
+.first-content {
+  width: 580px; /* чуть меньше, чтобы было место для правой колонки */
+  padding: 60px;
+  box-sizing: border-box; /* padding не увеличивает ширину */
+}
+
+/* Правая колонка - картинки */
+.first-image {
+  width: 580px;
+  text-align: right;
+  box-sizing: border-box;
+  position: relative;
+  height: 100%;
+}
+
+.first-image img:first-child {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 400px;
+}
+.first-image img:last-child {
+  position: absolute;
+  bottom: 27px;
+  right: 250px; /* подбираю по макету */
+  height: 150px;
+}
+
+/* Текстовые стили */
+.first-subtitle {
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: #3d3d3d;
+}
+
+.first-title {
+  font-size: 48px;
+  margin: 20px 0;
+}
+
+.accent {
+  color: #46a358;
+}
+
+.first-text {
+  color: #727272;
+  margin-bottom: 30px;
+}
+
+/* Кнопка */
+.first-btn {
+  display: inline-block;
+  background-color: #46a358;
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 6px;
+}
+
+/* ============================= */
+/* REGISTRATION PAGE */
+/* ============================= */
+
+/* Выровнять всю форму по центру страницы */
+.form-container {
+  display: flex;
+  flex-direction: column; /* включаем flexbox */
+  justify-content: center; /* центр по горизонтали */
+  align-items: center; /* центр по вертикали */
+  gap: 8px; /* чтобы занимала всю высоту экрана */
+}
+
+/* Центрируем элементы внутри формы */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* центрирует поля и кнопки по горизонтали */
+  gap: 16px;
+}
+
+/* Центрируем заголовок внутри формы */
+.title {
+  text-align: center;
+}
+.hint {
+  font: "Cera Pro", sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 14px;
+  letter-spacing: 0;
+  color: #3d3d3d;
+  align-self: flex-start;
+}
+input,
+button {
+  border-radius: 5px;
+}
+
+input {
+  display: block;
+  width: 300px;
+  height: 40px;
+  margin-bottom: 16px;
+  border: 1px solid #eaeaea;
+
+  padding: 8px 16px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+input::placeholder {
+  color: #a5a5a5;
+}
+
+.submit-button {
+  background-color: #46a358;
+  color: white;
+  font-size: 16px;
+  padding: 8px 16px;
+  border: none;
+
+  cursor: pointer;
+  text-align: center;
+  width: 300px;
+  height: 45px;
+}
+
+.social-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+.center-text {
+  font-size: 13px;
+  color: #3d3d3d;
+  text-align: center;
+}
+
+.social-button {
+  background-color: transparent;
+  color: #727272;
+  border: 1px solid #eaeaea;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  width: 300px;
+  height: 40px;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 16px;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  left: 69px;
+}
+
+.facebook-icon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 11px;
+  left: 64px;
+}
+
+.footer {
+  height: 10px;
+  background-color: #46a358;
+}
