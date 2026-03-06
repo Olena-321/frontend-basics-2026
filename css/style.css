@@ -3,6 +3,9 @@
 /* ============================= */
 :root {
   --primary-color: #46a358;
+  --basic-font-family: "Cera Pro", sans-serif;
+  --bolt-font-family: "Cera Pro", sans-serif;
+  --special-font-family: "Hanging Letters", sans-serif;
 }
 .container {
   font-size: 0; /* убираем пробелы между inline-block */
@@ -20,7 +23,7 @@
   vertical-align: middle;
 }
 .logo-text {
-  color: #46a358;
+  color: var(--primary-color);
 }
 
 /* Расстояние между логотипом и меню */
@@ -51,7 +54,7 @@
   height: 35px;
   margin-left: 350px;
 
-  background-color: #46a358; /* primary */
+  background-color: var(--primary-color); /* primary */
   color: #ffffff;
   text-decoration: none;
 
@@ -130,7 +133,7 @@
 }
 
 .accent {
-  color: #46a358;
+  color: var(--primary-color);
 }
 
 .first-text {
@@ -141,7 +144,7 @@
 /* Кнопка */
 .first-btn {
   display: inline-block;
-  background-color: #46a358;
+  background-color: var(--primary-color);
   color: white;
   text-decoration: none;
   padding: 12px 25px;
@@ -203,7 +206,7 @@ input::placeholder {
 }
 
 .submit-button {
-  background-color: #46a358;
+  background-color: var(--primary-color);
   color: white;
   font-size: 16px;
   padding: 8px 16px;
@@ -264,5 +267,143 @@ input::placeholder {
 
 .footer {
   height: 10px;
-  background-color: #46a358;
+  background-color: var(--primary-color);
+}
+
+/* ============================= */
+/* second-container <!-- Друга секція (homework 7.1) -->*/
+/* ============================= */
+
+.second-container {
+  display: flex; /* делим на 2 части */
+  width: 1000px;
+  margin: 0 auto;
+
+  margin-top: 40px;
+}
+
+/* Левая часть */
+.sidebar {
+  width: 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #fbfbfb;
+}
+.categories h3 {
+  font-family: var(--bold-font-family);
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+/* Ссылки категорий */
+.categories-links {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-left: 20px;
+}
+
+.categories-links a {
+  font-family: var(--basic-font-family);
+  font-weight: normal;
+  text-decoration: none;
+  color: #3d3d3d;
+  transition: color 0.2s;
+}
+
+.categories-links a:hover {
+  color: var(--primary-color);
+}
+.sale-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px; /* отступы, чтобы контент не прилипал к краям */
+  gap: 8px;
+}
+
+.sale-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  padding: 17px;
+}
+.sale-banner h2 {
+  font-family: var(--special-font-family);
+  color: var(--primary-color);
+  font-weight: normal;
+  font-size: 45px;
+}
+/* Правая часть */
+.products-container {
+  flex: 1; /* занимает всё оставшееся место */
+  margin-left: 33px;
+}
+
+/* Верхняя панель */
+.prodacts-top {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 37px;
+}
+.prodacts-top > div:first-child {
+  display: flex;
+  gap: 37px; /* расстояние между ссылками */
+}
+.prodacts-top > div:first-child a {
+  font-family: var(--basic-font-family);
+  color: #3d3d3d;
+  transition: color 0.2s;
+}
+.prodacts-top > div:first-child a:hover {
+  color: var(--primary-color);
+}
+
+.prodacts-top > div:last-child {
+  display: flex;
+  align-items: center;
+}
+.prodacts-top > div:last-child span {
+  font-family: var(--basic-font-family); /* применяем базовый шрифт */
+  color: #3d3d3d;
+  font-weight: normal;
+}
+
+.prodacts-top select {
+  font-family: var(--basic-font-family);
+  border: none; /* убираем рамку */
+  color: #3d3d3d;
+  padding: 5px 8px;
+  font-size: 15px;
+}
+
+/* Карточки */
+.products {
+  display: flex;
+  flex-wrap: wrap; /* чтобы переносились на новую строку */
+  font-family: var(--basic-font-family);
+  font-size: 16px;
+  background-color: #fbfbfb;
+}
+
+.card {
+  width: 30%;
+  margin: 10px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+}
+.price {
+  color: var(--primary-color);
+}
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
 }
