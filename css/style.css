@@ -5,130 +5,92 @@
   --primary-color: #46a358;
   --basic-font-family: "Cera Pro", sans-serif;
   --bolt-font-family: "Cera Pro", sans-serif;
+  --black-font-family: "Cera Pro", sans-serif;
+  --medium-font-family: "Cera Pro", sans-serif;
   --special-font-family: "Hanging Letters", sans-serif;
 }
-.container {
-  font-size: 0; /* убираем пробелы между inline-block */
-  white-space: nowrap; /* чтобы не переносились */
+.header {
+  padding: 25px 0;
 }
 
-.logo-container,
-.nav,
-.login-btn {
-  display: inline-block;
-  vertical-align: middle; /* по центру линии */
-  font-size: 16px; /* вернуть размер текста */
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.logo-icon {
-  vertical-align: middle;
+
+/* Лого */
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
+
 .logo-text {
   color: var(--primary-color);
+  font-weight: 700;
 }
 
-/* Расстояние между логотипом и меню */
-.nav {
-  margin-left: 379px; /* сколько от логотипа до Home */
-}
+/* Меню */
 
-/* Пункты меню в ряд */
 .menu {
+  display: flex;
+  gap: 40px;
   list-style: none;
-  margin: 0;
-  padding: 0;
-  display: inline-block;
-}
-.menu-item {
-  display: inline-block;
-  margin-right: 30px; /* расстояние между пунктами меню */
-}
-.menu-link {
-  color: #3d3d3d;
-  text-decoration: none;
 }
 
-/* Кнопка Login в конце */
+.menu-link {
+  text-decoration: none;
+  color: #3d3d3d;
+  font-size: 16px;
+  font-family: var(--basic-font-family);
+}
+
+/* Кнопка */
 
 .login-btn {
-  width: 100px;
-  height: 35px;
-  margin-left: 350px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 
-  background-color: var(--primary-color); /* primary */
-  color: #ffffff;
+  padding: 8px 18px;
+  background: var(--primary-color);
+  color: white;
   text-decoration: none;
-
-  display: inline-block;
-  text-align: center;
-  line-height: 35px; /* центр текста по вертикали */
-
-  position: relative;
   border-radius: 6px;
 }
-/* ============================= */
-/* first-container */
-/* ============================= */
 
 .first {
   margin-top: 30px;
 }
 
 .first-container {
-  width: 1200px;
-  height: 450px;
-  margin: 0 auto;
-  background-color: #f5f5f5;
-
-  font-size: 0; /* убираем пробел между inline-block */
-  line-height: 1; /* для вертикального выравнивания */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  padding: 30px;
+  gap: 100px;
 }
 
-/* Общие стили для колонок */
-.first-content,
-.first-image {
-  display: inline-block;
-  vertical-align: middle; /* выравнивание по центру блока */
-  font-size: 16px; /* возвращаем нормальный размер текста */
-}
+/* Левая часть */
 
-/* Левая колонка - текст */
 .first-content {
-  width: 580px; /* чуть меньше, чтобы было место для правой колонки */
-  padding: 60px;
-  box-sizing: border-box; /* padding не увеличивает ширину */
+  max-width: 520px;
 }
 
-/* Правая колонка - картинки */
-.first-image {
-  width: 580px;
-  text-align: right;
-  box-sizing: border-box;
-  position: relative;
-  height: 100%;
-}
-
-.first-image img:first-child {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 400px;
-}
-.first-image img:last-child {
-  position: absolute;
-  bottom: 27px;
-  right: 250px; /* подбираю по макету */
-  height: 150px;
-}
-
-/* Текстовые стили */
 .first-subtitle {
   font-size: 14px;
   letter-spacing: 2px;
   color: #3d3d3d;
+  font-family: var(--medium-font-family);
 }
 
 .first-title {
   font-size: 48px;
+  font-family: var(--black-font-family);
+  font-size: 60px;
   margin: 20px 0;
 }
 
@@ -139,16 +101,48 @@
 .first-text {
   color: #727272;
   margin-bottom: 30px;
+  font-family: var(--basic-font-family);
 }
 
 /* Кнопка */
+
 .first-btn {
   display: inline-block;
-  background-color: var(--primary-color);
+  padding: 12px 28px;
+
+  background: var(--primary-color);
   color: white;
   text-decoration: none;
-  padding: 12px 25px;
   border-radius: 6px;
+}
+
+/* Правая часть */
+
+.first-image {
+  position: relative;
+  width: 520px;
+  height: 400px;
+  display: flex;
+  align-items: flex-end;
+}
+.first-image img {
+  position: absolute;
+  bottom: 0; /* Прижимаем к НИЗУ контейнера */
+}
+
+/* большая картинка */
+.first-image img:first-child {
+  right: 0;
+
+  width: 500px;
+  z-index: 1;
+}
+.first-image img:last-child {
+  left: 0;
+
+  width: 155px;
+  padding: 15px;
+  z-index: 2;
 }
 
 /* ============================= */
@@ -290,9 +284,9 @@ input::placeholder {
   justify-content: space-between;
   background-color: #fbfbfb;
 }
-.categories h3 {
+
+.category-style {
   font-family: var(--bold-font-family);
-  font-weight: bold;
   margin-bottom: 10px;
   margin-left: 20px;
 }
@@ -337,6 +331,7 @@ input::placeholder {
   font-weight: normal;
   font-size: 45px;
 }
+
 /* Правая часть */
 .products-container {
   flex: 1; /* занимает всё оставшееся место */
@@ -380,6 +375,9 @@ input::placeholder {
   padding: 5px 8px;
   font-size: 15px;
 }
+/* ============================= */
+/* second-container <!-- Друга секція (homework 9.1) -->*/
+/* ============================= */
 
 /* Карточки */
 .products {
@@ -394,16 +392,60 @@ input::placeholder {
   width: 30%;
   margin: 10px;
   text-align: center;
+  position: relative;
+}
+.card-image {
+  position: relative;
 }
 
-.card img {
+.card-image img {
   width: 100%;
+  display: block;
 }
 .price {
   color: var(--primary-color);
 }
+.card-action {
+  position: absolute;
+
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+
+  display: flex;
+  gap: 10px;
+
+  opacity: 0;
+  transition: 0.3s;
+
+  background: #ffffff;
+  padding: 8px 12px;
+}
+
+.card:hover .card-action {
+  opacity: 1;
+}
+
+.card-sale {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  background: var(--primary-color);
+  color: #ffffff;
+
+  padding: 4px 8px;
+  font-size: 12px;
+}
 .pagination {
+  margin-top: 30px;
   display: flex;
   justify-content: flex-end;
   gap: 9px;
+}
+
+.pagination button:hover {
+  background: var(--primary-color);
+  color: white;
+  cursor: pointer;
 }
