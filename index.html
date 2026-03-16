@@ -17,12 +17,49 @@
 
         <nav class="nav">
           <ul class="menu">
-            <li class="menu-item"><a href="#" class="menu-link">Home</a></li>
-            <li class="menu-item"><a href="#" class="menu-link">Shop</a></li>
             <li class="menu-item">
-              <a href="#" class="menu-link">Plant Care</a>
+              <a href="#" class="menu-link">Home</a>
             </li>
-            <li class="menu-item"><a href="#" class="menu-link">Blogs</a></li>
+
+            <li class="menu-item">
+              <a href="#" class="menu-link">Shop</a>
+            </li>
+
+            <!-- Пункт с dropdown -->
+            <li class="menu-item has-dropdown">
+              <a href="#" class="menu-link">
+                Plant Care
+                <span class="arrow-down">▾</span>
+              </a>
+
+              <!-- ПЕРВЫЙ УРОВЕНЬ -->
+              <ul class="dropdown">
+                <li><a href="#">Drainage</a></li>
+                <li><a href="#">Fungicides</a></li>
+                <li><a href="#">Fertilizer</a></li>
+
+                <!-- Пункт со вторым уровнем -->
+                <li class="has-submenu">
+                  <a href="#">
+                    Priming
+                    <span class="arrow-right">▸</span>
+                  </a>
+
+                  <!-- ВТОРОЙ УРОВЕНЬ -->
+                  <ul class="submenu">
+                    <li><a href="#">Universal</a></li>
+                    <li><a href="#">For Ficus</a></li>
+                    <li><a href="#">For Cacti</a></li>
+                    <li><a href="#">For Citrus</a></li>
+                    <li><a href="#">For Orchids</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <li class="menu-item">
+              <a href="#" class="menu-link">Blogs</a>
+            </li>
           </ul>
         </nav>
         <a href="registration.html" class="login-btn">

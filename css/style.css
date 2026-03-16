@@ -11,6 +11,8 @@
 }
 .header {
   padding: 25px 0;
+  position: relative;
+  z-index: 100;
 }
 
 .header .container {
@@ -39,12 +41,119 @@
   gap: 40px;
   list-style: none;
 }
+.menu-item {
+  position: relative;
+}
 
 .menu-link {
   text-decoration: none;
   color: #3d3d3d;
   font-size: 16px;
   font-family: var(--basic-font-family);
+}
+.menu-link:hover {
+  border-bottom: 3px solid var(--primary-color);
+}
+
+/* ===== СТРІЛОЧКА ВНИЗ ===== */
+
+.arrow-down {
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+/* ===== ПЕРШИЙ РІВЕНЬ ===== */
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+
+  background: #edf2ee;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+
+  display: none;
+}
+
+/* показ меню */
+.has-dropdown:hover > .dropdown {
+  display: block;
+}
+.dropdown li {
+  position: relative;
+  width: 100%;
+}
+
+/* пункти меню */
+.dropdown li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #3d3d3d;
+  width: 100%;
+  font-size: 15px;
+  box-sizing: border-box;
+  font-family: var(--basic-font-family);
+}
+
+/* hover */
+.dropdown li a:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* ===== ДРУГИЙ РІВЕНЬ ===== */
+
+.has-submenu {
+  position: relative;
+}
+
+/* стрілочка вправо */
+.arrow-right {
+  font-size: 12px;
+}
+
+/* підменю */
+.submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  left: 98%;
+
+  min-width: 200px;
+  padding: 10px 0;
+  margin-top: 0;
+
+  background: #edf2ee;
+  list-style: none;
+  z-index: 1000;
+
+  display: none;
+}
+.submenu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20px; /* Создаем невидимую зону слева от подменю */
+  width: 20px; /* Ширина мостика */
+  height: 100%;
+}
+
+/* показ другого рівня */
+.has-submenu:hover > .submenu {
+  display: block;
+}
+
+/* hover другого рівня */
+.submenu li a:hover {
+  background: var(--primary-color);
+  color: white;
 }
 
 /* Кнопка */
