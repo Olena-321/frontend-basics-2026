@@ -4,10 +4,10 @@
 
 .page-container {
   max-width: 1200px; /* или нужная ширина */
-  margin: 0 auto;    /* центрирование */
-  width: 100%;       /* адаптивность */
+  margin: 0 auto; /* центрирование */
+  width: 100%; /* адаптивность */
   box-sizing: border-box;
-  padding: 0 20px;   /* чтобы на маленьких экранах не прилипало к краям */
+  padding: 0 20px; /* чтобы на маленьких экранах не прилипало к краям */
 }
 :root {
   --primary-color: #46a358;
@@ -16,7 +16,35 @@
   --black-font-family: "Cera Pro", sans-serif;
   --medium-font-family: "Cera Pro", sans-serif;
   --special-font-family: "Hanging Letters", sans-serif;
+  --btn-scale-hover: 1.1; /* на сколько увеличивать */
+  --btn-scale-time: 0.4s; /* длительность анимации */
 }
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--btn-scale-time) ease;
+}
+
+/* hover-анимация */
+.btn:hover {
+  animation: btn-pop var(--btn-scale-time) ease;
+}
+
+@keyframes btn-pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(var(--btn-scale-hover));
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .header {
   /* padding: 25px 0; */
   position: relative;
@@ -43,6 +71,11 @@
 }
 
 /* Меню */
+.nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
 
 .menu {
   display: flex;
@@ -164,18 +197,77 @@
   color: white;
 }
 
-/* Кнопка */
+/* Контейнер для иконок */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-left: auto;
+}
+.icon-group {
+  display: flex;
+  align-items: center;
+  /* РАССТОЯНИЕ МЕЖДУ ПОИСКОМ И КОРЗИНОЙ */
+  gap: 30px;
+}
+
+/* Стили кнопок-иконок */
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  outline: none;
+  border: none;
+  background: none;
+}
+/* Анимация прыжка */
+@keyframes icon-jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Применяем на hover к иконкам */
+.action-btn:hover img {
+  animation: icon-jump 0.5s ease;
+}
 
 .login-btn {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 15px;
 
   padding: 8px 18px;
   background: var(--primary-color);
   color: white;
   text-decoration: none;
   border-radius: 6px;
+}
+@keyframes login-jump {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* увеличиваем на 10% */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Применяем на hover к кнопке login */
+.login-btn:hover {
+  animation: login-jump 0.4s ease;
 }
 
 .first {
@@ -231,6 +323,22 @@
   color: white;
   text-decoration: none;
   border-radius: 6px;
+}
+@keyframes shop_now-jump {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* увеличиваем на 10% */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Применяем на hover к кнопке login */
+.login-btn:hover {
+  animation: shop_now-jump 0.4s ease;
 }
 
 /* Правая часть */
@@ -305,7 +413,7 @@ input {
   display: block;
   width: 300px;
   height: 40px;
-  /* margin-bottom: 16px; */
+
   border: 1px solid #eaeaea;
 
   padding: 8px 16px;
@@ -377,7 +485,6 @@ input::placeholder {
 }
 
 .footer {
-  
   background-color: var(--primary-color);
 }
 
@@ -387,7 +494,7 @@ input::placeholder {
 
 .second-container {
   display: flex; /* делим на 2 части */
- 
+
   margin: 0 auto;
 
   margin-top: 40px;
@@ -434,6 +541,11 @@ input::placeholder {
   text-align: center;
   padding: 20px; /* отступы, чтобы контент не прилипал к краям */
   gap: 8px;
+  background: linear-gradient(
+    145.46deg,
+    rgba(70, 163, 88, 0.3) -46.09%,
+    rgba(70, 163, 88, 0) 103.28%
+  );
 }
 
 .sale-banner img {
@@ -480,7 +592,7 @@ input::placeholder {
   align-items: center;
 }
 .prodacts-top > div:last-child span {
-  font-family: var(--basic-font-family); 
+  font-family: var(--basic-font-family);
   color: #3d3d3d;
   font-weight: normal;
 }
@@ -538,7 +650,9 @@ input::placeholder {
   background: #ffffff;
   padding: 8px 12px;
 }
-
+.card:hover {
+  border-top: 2px solid var(--primary-color); /* только верхняя линия зелёная */
+}
 .card:hover .card-action {
   opacity: 1;
 }
@@ -554,12 +668,23 @@ input::placeholder {
   padding: 4px 8px;
   font-size: 12px;
 }
+
+.pagination-wrapper {
+  max-width: 1040px; /* ширина, совпадающая с карточками */
+  margin: 20px auto 0; /* центрируем блок */
+}
+
 .pagination {
-  margin-top: 30px;
   display: flex;
   justify-content: flex-end;
   gap: 9px;
-  
+}
+.pagination {
+  margin-top: 30px;
+  display: flex;
+
+  justify-content: flex-end;
+  gap: 9px;
 }
 
 .pagination button:hover {
@@ -568,72 +693,72 @@ input::placeholder {
   cursor: pointer;
 }
 
-.third-section{
-  padding:80px 0;
+.third-section {
+  padding: 80px 0;
 }
 
 /* TOP BLOCKS */
 
-.top-blocks{
-  display:flex;
-  gap:28px;
-  margin-bottom:138px;
+.top-blocks {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 138px;
 }
 
-.promo-block{
-  display:flex;
-  align-items:center;
-  background:#FBFBFB;
-  padding:20px;
-  flex:1;
+.promo-block {
+  display: flex;
+  align-items: center;
+  background: #fbfbfb;
+  padding: 20px;
+  flex: 1;
 }
 
-.promo-block img{
-  width:287px;
+.promo-block img {
+  width: 287px;
 }
 
-.promo-text{
-  margin-left:20px;
+.promo-text {
+  margin-left: 20px;
 }
 
-.promo-text h3{
-  font-size:18px;
-  margin-bottom:10px;
+.promo-text h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
   font-family: var(--bold-font-family);
 }
 
-.promo-text p{
-  font-size:14px;
-  margin-bottom:15px;
+.promo-text p {
+  font-size: 14px;
+  margin-bottom: 15px;
   color: #727272;
   font-family: var(--basic-font-family);
 }
 
-.btn{
-  display:inline-block;
-  background:var(--primary-color);
-  color:#FFFFFF;
+.btn {
+  display: inline-block;
+  background: var(--primary-color);
+  color: #ffffff;
   font-family: var(--basic-font-family);
-  padding:10px 20px;
-  text-decoration:none;
-  border-radius:5px;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
 /* BLOG */
 
-.blog-title{
-  text-align:center;
-  margin-bottom:40px;
+.blog-title {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-.blog-title h2{
-  font-size:30px;
-  margin-bottom:15px;
-  color: #3D3D3D;
+.blog-title h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+  color: #3d3d3d;
   font-family: var(--bold-font-family);
 }
 
-.blog-title p{
+.blog-title p {
   color: #727272;
   font-family: var(--basic-font-family);
   size: 14px;
@@ -641,84 +766,86 @@ input::placeholder {
 
 /* BLOG CARDS */
 
-.blog-cards{
-  display:flex;
-  gap: 44px;;
+.blog-cards {
+  display: flex;
+  gap: 44px;
 }
 
-.blog-card{
-  background:#FBFBFB ;
-  flex:1;
+.blog-card {
+  background: #fbfbfb;
+  flex: 1;
 }
 
-.blog-card img{
-  width:100%;
+.blog-card img {
+  width: 100%;
 }
 
-.blog-info{
-  padding:4px;
+.blog-info {
+  padding: 4px;
 }
 
-.blog-info span{
-  color:var(--primary-color);
+.blog-info span {
+  color: var(--primary-color);
   font-family: var(--basic-font-family);
-  font-size:14px;
+  font-size: 14px;
 }
 
-.blog-info h4{
-  margin:10px 0;
-  font-size:20px;
+.blog-info h4 {
+  margin: 10px 0;
+  font-size: 20px;
   font-family: var(--bold-font-family);
-  color: #3D3D3D;
+  color: #3d3d3d;
 }
 
-.blog-info p{
+.blog-info p {
   font-family: var(--basic-font-family);
-  font-size:14px;
-  color:#727272;
-  margin-bottom:9px;
+  font-size: 14px;
+  color: #727272;
+  margin-bottom: 9px;
 }
 
-.blog-info a{
-  text-decoration:none;
-  color:#3D3D3D;
+.blog-info a {
+  text-decoration: none;
+  color: #3d3d3d;
   font-family: var(--basic-font-family);
   transition: 0.3s;
 }
+
+/* hover только меняет цвет */
 .read-more:hover {
-  color: var(--primary-color);       
+  color: var(--primary-color);
+}
+.read-more:hover {
+  color: var(--primary-color);
 }
 
 /* Homework 11.1 */
 
-
-
 .footer-top {
   margin: 30px auto 0;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: flex-start; /* Выравнивание по верху */
   padding: 24px;
   gap: 30px;
-  background-color: #FBFBFB;
+  background-color: #fbfbfb;
   max-width: 1200px; /* Лучше использовать max-width для адаптивности */
 }
 
-
-
-    .features {
+.features {
   display: flex;
   gap: 30px;
-  flex: 1;}
+  flex: 1;
+}
 
-.feature{
+.feature {
   max-width: 220px;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 .feature-img-box {
-  height: 100px;      /* Фиксированная высота для зоны картинки */
+  height: 100px; /* Фиксированная высота для зоны картинки */
   display: flex;
   align-items: flex-end; /* Картинки «встанут» на одну линию снизу */
   margin-bottom: 15px;
@@ -732,12 +859,11 @@ input::placeholder {
   margin-bottom: 15px;
 }
 
-
 .feature h3 {
   margin: 10px 0 5px;
   font-family: var(--bold-font-family);
   font-size: 17px;
-  color:#3D3D3D ;
+  color: #3d3d3d;
 }
 
 .feature p {
@@ -749,8 +875,9 @@ input::placeholder {
 .newsletter {
   max-width: 354px;
   width: 100%;
-  text-align: left;}
-  
+  text-align: left;
+}
+
 .newsletter h3 {
   font-family: var(--bold-font-family);
   font-size: 18px;
@@ -761,17 +888,15 @@ input::placeholder {
 .subscribe-form {
   display: flex;
   flex-direction: row;
-  
+
   margin: 12px 0 25px;
   width: 100%;
   max-width: 354px;
-  box-shadow: 0px 0px 20px 0px #0000000F;
+  box-shadow: 0px 0px 20px 0px #0000000f;
 
   border-radius: 6px;
   overflow: hidden;
 }
-
-
 
 .subscribe-form input {
   flex: 1;
@@ -779,16 +904,14 @@ input::placeholder {
   height: 40px;
   padding: 0 15px;
   border: none;
- color:  0px 0px 20px 0px #0000000F;
- ;
+  color: 0px 0px 20px 0px #0000000f;
   outline: none;
   font-family: var(--basic-font-family);
 }
 .subscribe-form input::placeholder {
   font-family: var(--basic-font-family);
   color: #acacac;
-  
-  
+
   font-size: 14px;
 }
 
@@ -801,11 +924,9 @@ input::placeholder {
   background: var(--primary-color);
   font-family: var(--bold-font-family);
   font-size: 18px;
-  color:#FFFFFF;
- margin: 0;
+  color: #ffffff;
+  margin: 0;
   cursor: pointer;
- 
-  
 }
 .newsletter p {
   font-family: var(--basic-font-family);
@@ -833,11 +954,8 @@ input::placeholder {
   line-height: 22px;
 }
 .footer-info a:hover {
-       
   text-decoration: underline;
 }
-
-
 
 /* Каждый блок */
 .footer-info > div {
@@ -854,7 +972,65 @@ input::placeholder {
 .footer-info > div:not(:first-child) {
   padding-left: 30px;
 }
+.phone img {
+  transition: transform 0.3s ease;
+}
 
+/* анимация при наведении */
+.phone:hover img {
+  animation: phone-shake 0.8s ease;
+}
+
+@keyframes phone-shake {
+  0% {
+    transform: rotate(0);
+  }
+  20% {
+    transform: rotate(-15deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  80% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+.email:hover img {
+  animation: mail-jump 0.6s ease;
+}
+
+@keyframes mail-jump {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-5px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.address:hover img {
+  animation: address-jump 0.6s ease;
+}
+
+@keyframes address-jump {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 /* Логотип */
 .logo-container {
   display: flex;
@@ -875,7 +1051,6 @@ input::placeholder {
   object-fit: contain;
 }
 
-
 /* Low footer */
 
 .footer {
@@ -883,14 +1058,13 @@ input::placeholder {
   justify-content: space-between;
   align-items: flex-start;
 
-  
-
   padding: 40px 40px 30px;
-  background: #FBFBFB;
+  background: #fbfbfb;
   border-bottom: 1px solid #eaeaea;
- 
-  padding-bottom: 20px;}
-  
+
+  padding-bottom: 20px;
+}
+
 .footer-col {
   flex: 1;
   max-width: 200px;
@@ -898,8 +1072,8 @@ input::placeholder {
 
 .footer-col h4 {
   font-size: 18px;
-  
-  color: #3D3D3D;
+
+  color: #3d3d3d;
   font-family: var(--bold-font-family);
 
   margin-bottom: 8px;
@@ -926,12 +1100,9 @@ input::placeholder {
   transition: color 0.3s ease;
 }
 
-
 .footer-col a:hover {
   color: var(--primary-color);
 }
-
-
 
 .social-icons {
   display: flex;
@@ -948,8 +1119,7 @@ input::placeholder {
   align-items: center;
   justify-content: center;
 
- 
-  border: 1px solid #46A35833;
+  border: 1px solid #46a35833;
   border-radius: 4px;
 
   transition: 0.3s;
@@ -974,14 +1144,12 @@ input::placeholder {
 }
 
 .footer-bottom {
-
   display: block;
- 
+
   margin-top: 6x;
   text-align: center;
   padding: 40px 40px 30px;
   box-sizing: border-box;
-  
 }
 
 .footer-bottom p {
