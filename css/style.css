@@ -9,6 +9,10 @@
   box-sizing: border-box;
   padding: 0 20px; /* чтобы на маленьких экранах не прилипало к краям */
 }
+img {
+  max-width: 100%; /* Картинка никогда не станет шире своего контейнера */
+  height: auto;    /* Сохраняет пропорции */
+}
 :root {
   --primary-color: #46a358;
   --basic-font-family: "Cera Pro", sans-serif;
@@ -107,9 +111,10 @@
 
 .dropdown {
   position: absolute;
-  top: 100%;
-  left: 0;
+  top: 0;
+  left: 100%;
   min-width: 200px;
+  z-index: 1000;
 
   background: #edf2ee;
   list-style: none;
@@ -164,8 +169,7 @@
 .submenu {
   position: absolute;
   top: 0;
-  left: 100%;
-  left: 98%;
+  left: calc(100% + 8px);
 
   min-width: 200px;
   padding: 10px 0;
@@ -268,6 +272,11 @@
 /* Применяем на hover к кнопке login */
 .login-btn:hover {
   animation: login-jump 0.4s ease;
+}
+
+/* Скрыть логин в меню на десктопе */
+.login-menu-item {
+  display: none;
 }
 
 .first {
@@ -582,9 +591,11 @@ input::placeholder {
   font-family: var(--basic-font-family);
   color: #3d3d3d;
   transition: color 0.2s;
+  text-decoration: none;
 }
 .prodacts-top > div:first-child a:hover {
   color: var(--primary-color);
+  text-decoration: none;
 }
 
 .prodacts-top > div:last-child {
@@ -595,6 +606,7 @@ input::placeholder {
   font-family: var(--basic-font-family);
   color: #3d3d3d;
   font-weight: normal;
+  
 }
 
 .prodacts-top select {
@@ -610,18 +622,22 @@ input::placeholder {
 
 /* Карточки */
 .products {
-  display: flex;
-  flex-wrap: wrap; /* чтобы переносились на новую строку */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: center;
+
   font-family: var(--basic-font-family);
   font-size: 16px;
   background-color: #fbfbfb;
 }
 
 .card {
-  width: 30%;
-  margin: 10px;
+  width: 100%;
+  margin: 0;
   text-align: center;
   position: relative;
+  border-top: 2px solid transparent;
 }
 .card-image {
   position: relative;
@@ -938,8 +954,10 @@ input::placeholder {
 .footer-info {
   margin-bottom: 0;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 
   padding: 25px 40px;
   background: linear-gradient(90deg, #edf6ef 0%, #52c368 100%);
@@ -965,13 +983,8 @@ input::placeholder {
 
   font-size: 14px;
   color: #3d3d3d;
-  max-width: 220px;
 }
 
-/* Отступ слева между блоками */
-.footer-info > div:not(:first-child) {
-  padding-left: 30px;
-}
 .phone img {
   transition: transform 0.3s ease;
 }

@@ -1,0 +1,382 @@
+/* ========================= */
+/* ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ ЭКРАНОВ */
+/* ========================= */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.page-container {
+  width: 100%;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+/* ========================= */
+/* БУРГЕР И МОБИЛЬНЫЕ ЭКРАНЫ */
+/* ========================= */
+
+/* Скрываем бургер на десктопе */
+.mobile-menu-icon {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  z-index: 2000;
+}
+.mobile-menu-icon span {
+  width: 25px;
+  height: 3px;
+  background: #46a358;
+  display: block;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.mobile-menu-icon.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+.mobile-menu-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-icon.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* АДАПТИВ 768px и меньше */
+@media (max-width: 768px) {
+
+  /* ===== HEADER ===== */
+  .header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 15px;
+  }
+
+  .header .logo-container {
+    flex-shrink: 0;
+    order: 1;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    order: 2;
+    flex-shrink: 0;
+    margin-right: 20px;
+  }
+
+  .icon-group {
+    display: flex;
+    gap: 15px;
+  }
+
+  .login-btn {
+    display: none !important;
+  }
+
+  .mobile-menu-icon {
+    display: flex;
+    flex-shrink: 0;
+    order: 3;
+  }
+
+  .nav {
+    display: none !important;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 1500;
+  }
+
+  .nav.active {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .login-menu-item {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 20px;
+    display: flex;
+  }
+
+  .login-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .login-menu-link img {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Скрываем оригинальный логин из header-actions */
+  .login-btn {
+    display: none !important;
+  }
+
+  /* Стили для логина в меню */
+  .login-menu-link {
+    color: white !important;
+    background: var(--primary-color);
+    padding: 10px 16px !important;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  /* ===== FIRST SECTION ===== */
+  .first-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .first-image {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: auto;
+    gap: 15px;
+    flex-direction: row-reverse;
+  }
+
+  .first-image img {
+    position: relative;
+    height: auto;
+  }
+
+  .first-image img:first-child {
+    width: 60%;
+    max-width: 300px;
+  }
+
+  .first-image img:last-child {
+    width: 35%;
+    max-width: 200px;
+    padding: 0;
+  }
+
+  /* ===== SIDEBAR ===== */
+  .sidebar {
+    display: none;
+  }
+
+  .second-container {
+    flex-direction: column;
+  }
+
+  .products-container {
+    margin-left: 0;
+  }
+
+  /* ===== PRODUCTS ===== */
+  .products {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 карточки в ряд */
+    gap: 15px;
+    align-items: center;
+   
+  }
+
+  .card {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* ===== TOP FILTER ===== */
+  .prodacts-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 37px;
+    flex-wrap: wrap;
+  }
+
+  .prodacts-top > div:first-child {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
+
+  .prodacts-top > div:last-child {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  /* ===== PROMO BLOCKS ===== */
+  .top-blocks {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .promo-block {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .promo-block img {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  /* Скрываем кнопку Login — она будет в мобильном меню */
+  .login-btn {
+    display: none;
+  }
+
+  .promo-text {
+    margin-left: 0;
+  }
+
+  /* ===== BLOG ===== */
+  .blog-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* два блока в ряд */
+    gap: 20px;
+  }
+
+  /* ===== FOOTER TOP ===== */
+  .footer-top {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+    text-align: center;
+  }
+
+  .newsletter {
+    max-width: 100%;
+  }
+
+  /* ===== GREEN BLOCK ===== */
+  .footer-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .footer-info > div {
+    width: 100%;
+    max-width: none;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* ========================= */
+/* СУПЕР-МОБИЛЬНЫЕ ЭКРАНЫ <= 420px */
+/* ========================= */
+@media (max-width: 420px) {
+
+  /* ===== HEADER ===== */
+  .header .container {
+    padding: 8px 10px;
+  }
+
+  .mobile-menu-icon span {
+    width: 20px;
+    height: 2.5px;
+  }
+
+  /* ===== FIRST SECTION ===== */
+  .first-container {
+    gap: 15px;
+  }
+
+  .first-image img {
+    width: auto;
+    max-width: 45%;
+  }
+
+  .first-image img:first-child {
+    width: 55%;
+    max-width: 150px;
+  }
+
+  .first-image img:last-child {
+    width: 40%;
+    max-width: 120px;
+  }
+
+  /* ===== PRODUCTS ===== */
+  .products {
+    grid-template-columns: 1fr; /* 1 карточка в ряд */
+    gap: 12px;
+    align-items: center;
+   
+  }
+
+  .card {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* ===== TOP FILTER ===== */
+  .prodacts-top {
+    gap: 8px;
+  }
+
+  /* ===== PROMO BLOCKS ===== */
+  .promo-block img {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  /* ===== BLOG ===== */
+  .blog-cards {
+    grid-template-columns: 1fr; /* 1 блог-карта в ряд */
+    gap: 15px;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer-top, .footer-info, .footer {
+    gap: 15px;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+   
+  }
+
+  .newsletter {
+    max-width: 100%;
+  }
+
+  .footer-info > div {
+    padding-left: 0;
+  }
+
+  .contact-info > div {
+    padding-left: 0;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+}

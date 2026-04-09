@@ -6,6 +6,7 @@
     <title>GreenShop</title>
     <link rel="stylesheet" href="./fonts/stylesheet.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
   </head>
   <body>
     <div class="page-container">
@@ -18,6 +19,12 @@
               class="logo-icon"
             />
             <span class="logo-text">GREENSHOP</span>
+          </div>
+
+          <div class="mobile-menu-icon" id="mobile-menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
 
           <nav class="nav">
@@ -64,6 +71,13 @@
 
               <li class="menu-item">
                 <a href="#" class="menu-link">Blogs</a>
+              </li>
+
+              <li class="menu-item login-menu-item">
+                <a href="registration.html" class="menu-link login-menu-link">
+                  <img src="images/Logout.png" alt="Login icon" />
+                  Login
+                </a>
               </li>
             </ul>
           </nav>
@@ -451,7 +465,7 @@
           <h3>Would you like to join newsletters?</h3>
           <form class="subscribe-form">
             <input type="email" placeholder="enter your email address..." />
-            <a href="#" class="Join btn">Join</a>
+            <button type="submit" class="button Join btn">Join</button>
           </form>
           <p>
             We usually post offers and challenges in newsletter. We’re your
@@ -549,5 +563,6 @@
         <p>© 2021 Green Shop. All Rights Reserved.</p>
       </div>
     </div>
+    <script src="js/menu.js"></script>
   </body>
 </html>
